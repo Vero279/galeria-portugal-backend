@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wall_uploads",
+  "info": {
+    "singularName": "wall-upload",
+    "pluralName": "wall-uploads",
+    "displayName": "Wall Upload"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image_url": {
+      "type": "string",
+      "required": true
+    },
+    "session_id": {
+      "type": "string",
+      "required": true
+    },
+    "artwork": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::artwork.artwork",
+      "inversedBy": "wall_uploads"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "artworks",
+  "info": {
+    "singularName": "artwork",
+    "pluralName": "artworks",
+    "displayName": "Artwork"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image_url": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "integer"
+    },
+    "medium": {
+      "type": "string"
+    },
+    "dimensions": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "artist": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::artist.artist",
+      "inversedBy": "artworks"
+    },
+    "artwork_description": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork-description.artwork-description",
+      "inversedBy": "artwork"
+    },
+    "artwork_reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::artwork-review.artwork-review",
+      "mappedBy": "artwork"
+    },
+    "wall_uploads": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::wall-upload.wall-upload",
+      "mappedBy": "artwork"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "artwork"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_discounts",
+  "info": {
+    "singularName": "user-discount",
+    "pluralName": "user-discounts",
+    "displayName": "User Discount"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "discount_code": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "discount_percentage": {
+      "type": "integer",
+      "required": true,
+      "min": 0,
+      "max": 100
+    },
+    "used": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "session_id": {
+      "type": "string",
+      "required": true
+    },
+    "artist": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::artist.artist",
+      "inversedBy": "user_discounts"
+    }
+  }
+}

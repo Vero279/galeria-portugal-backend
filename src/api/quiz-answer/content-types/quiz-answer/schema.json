@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quiz_answers",
+  "info": {
+    "singularName": "quiz-answer",
+    "pluralName": "quiz-answers",
+    "displayName": "Quiz Answer"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "score": {
+      "type": "integer",
+      "required": true
+    },
+    "total_questions": {
+      "type": "integer",
+      "required": true
+    },
+    "session_id": {
+      "type": "string",
+      "required": true
+    },
+    "artist_quiz": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::artist-quiz.artist-quiz",
+      "inversedBy": "quiz_answers"
+    }
+  }
+}

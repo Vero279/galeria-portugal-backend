@@ -1,0 +1,38 @@
+{
+  "cities": [
+    {"name": "Lisboa", "slug": "lisboa", "description": "A capital e a maior cidade de Portugal", "is_published": true},
+    {"name": "Porto", "slug": "porto", "description": "Cidade histórica no norte de Portugal", "is_published": true},
+    {"name": "Coimbra", "slug": "coimbra", "description": "Cidade universitária histórica no centro de Portugal", "is_published": true},
+    {"name": "Faro", "slug": "faro", "description": "Capital do Algarve, conhecida pelas praias e arquitetura mourisca", "is_published": true},
+    {"name": "Aveiro", "slug": "aveiro", "description": "Cidade conhecida como Veneza de Portugal pelos seus canais", "is_published": true}
+  ],
+  "artists": [
+    {"name": "João Silva", "slug": "joao-silva", "bio": "Artista contemporâneo português", "medium": "Pintura", "is_published": true, "rating": 4.5, "total_reviews": 12},
+    {"name": "Maria Santos", "slug": "maria-santos", "bio": "Escultora e instaladora", "medium": "Escultura", "is_published": true, "rating": 4.8, "total_reviews": 15},
+    {"name": "Pedro Costa", "slug": "pedro-costa", "bio": "Artista multidisciplinar focado em arte urbana", "medium": "Arte Urbana", "is_published": true, "rating": 4.3, "total_reviews": 8},
+    {"name": "Ana Rodrigues", "slug": "ana-rodrigues", "bio": "Fotógrafa especializada em arquitetura histórica", "medium": "Fotografia", "is_published": true, "rating": 4.6, "total_reviews": 11},
+    {"name": "Miguel Ferreira", "slug": "miguel-ferreira", "bio": "Artista plástico inspirado pela luz do Algarve", "medium": "Pintura", "is_published": true, "rating": 4.4, "total_reviews": 9},
+    {"name": "Carla Mendes", "slug": "carla-mendes", "bio": "Ceramista contemporânea", "medium": "Cerâmica", "is_published": true, "rating": 4.7, "total_reviews": 13},
+    {"name": "Tiago Alves", "slug": "tiago-alves", "bio": "Artista digital que explora tecnologia e natureza", "medium": "Arte Digital", "is_published": true, "rating": 4.5, "total_reviews": 10},
+    {"name": "Sofia Pereira", "slug": "sofia-pereira", "bio": "Escultora especializada em formas orgânicas", "medium": "Escultura", "is_published": true, "rating": 4.9, "total_reviews": 16}
+  ],
+  "artworks": [
+    {"title": "Abstração Urbana", "year": 2023, "medium": "Acrílico sobre tela", "dimensions": "100x150cm", "price": 2500},
+    {"title": "Formas Geométricas", "year": 2023, "medium": "Acrílico sobre tela", "dimensions": "90x120cm", "price": 1800},
+    {"title": "Reflexo Noturno", "year": 2023, "medium": "Óleo sobre tela", "dimensions": "120x80cm", "price": 3200},
+    {"title": "Expressão em Pedra", "year": 2022, "medium": "Escultura em granito", "dimensions": "85x60cm", "price": 4500},
+    {"title": "Cores em Harmonia", "year": 2024, "medium": "Acrílico sobre tela", "dimensions": "110x140cm", "price": 2800},
+    {"title": "Instalação Contemporânea", "year": 2024, "medium": "Instalação mista", "dimensions": "200x300cm", "price": 5500}
+  ],
+  "products": [
+    {"title": "Abstração Urbana - Original", "category": "artwork", "price": 2500, "stock_quantity": 1},
+    {"title": "Poster - Abstração Urbana", "category": "print", "price": 25, "stock_quantity": 50},
+    {"title": "Formas Geométricas - Original", "category": "artwork", "price": 3500, "stock_quantity": 1},
+    {"title": "Livro de Arte - Maria Santos", "category": "book", "price": 45, "stock_quantity": 30},
+    {"title": "Camiseta - Abstração Urbana", "category": "merchandise", "price": 35, "stock_quantity": 100}
+  ],
+  "quizzes": [
+    {"title": "Teste Conhecimento João Silva", "description": "Quanto conhece sobre João Silva?"},
+    {"title": "Teste Conhecimento Maria Santos", "description": "Quanto conhece sobre Maria Santos?"}
+  ]
+}

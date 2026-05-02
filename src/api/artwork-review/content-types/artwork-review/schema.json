@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "artwork_reviews",
+  "info": {
+    "singularName": "artwork-review",
+    "pluralName": "artwork-reviews",
+    "displayName": "Artwork Review"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rating": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 5
+    },
+    "comment": {
+      "type": "text"
+    },
+    "session_id": {
+      "type": "string",
+      "required": true
+    },
+    "artwork": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::artwork.artwork",
+      "inversedBy": "artwork_reviews"
+    }
+  }
+}

@@ -1,0 +1,187 @@
+Group 1: Core Content (4 types)
+Cities
+Artists
+Artworks
+Wall Uploads
+
+Group 2: Artwork Features (4 types)
+Artwork Descriptions
+Artwork Reviews
+Artist Quizzes
+Quiz Questions
+
+Group 3: User Interactions (3 types)
+Quiz Answers
+Artist Events
+User Discounts
+
+Group 4: E-Commerce (4 types - Currently Missing from Docs!)
+Products
+Cart Items
+Orders
+Order Items
+
+Content-Type Field Definitions
+I've created detailed field specifications for all 15 types. Here's a condensed reference (you'll create these in the Strapi admin UI):
+
+1. Cities
+Field	Type	Required	Extra
+name	String	Yes	-
+slug	String	Yes	Unique
+image_url	String (URL)	Yes	-
+description	Rich Text	No	-
+is_published	Boolean	Yes	Default: true
+Relations:
+
+One-to-Many → Artists
+One-to-Many → Artist Events
+2. Artists
+Field	Type	Required	Extra
+name	String	Yes	-
+slug	String	Yes	Unique
+bio	Rich Text	No	-
+profile_image	String (URL)	No	-
+cover_image	String (URL)	No	-
+medium	String	No	-
+is_published	Boolean	Yes	Default: true
+rating	Decimal	No	Default: 0
+total_reviews	Integer	No	Default: 0
+Relations:
+
+Many-to-One ← Cities
+One-to-Many → Artworks
+One-to-One → Artist Quizzes
+One-to-Many → User Discounts
+One-to-Many → Artist Events
+3. Artworks
+Field	Type	Required	Extra
+title	String	Yes	-
+image_url	String (URL)	Yes	-
+year	Integer	No	-
+medium	String	No	-
+dimensions	String	No	-
+price	Decimal	No	-
+Relations:
+
+Many-to-One ← Artists
+One-to-One → Artwork Descriptions
+One-to-Many → Artwork Reviews
+One-to-Many → Wall Uploads
+4. Wall Uploads
+Field	Type	Required	Extra
+image_url	String (URL)	Yes	-
+session_id	String	Yes	-
+Relations:
+
+Many-to-One ← Artworks
+5. Artwork Descriptions
+Field	Type	Required	Extra
+description	Rich Text	Yes	-
+Relations:
+
+One-to-One ← Artworks
+6. Artwork Reviews
+Field	Type	Required	Extra
+rating	Integer	Yes	Min: 1, Max: 5
+comment	Text	No	-
+session_id	String	Yes	-
+Relations:
+
+Many-to-One ← Artworks
+7. Artist Quizzes
+Field	Type	Required	Extra
+title	String	Yes	-
+description	Rich Text	No	-
+Relations:
+
+One-to-One ← Artists
+One-to-Many → Quiz Questions
+One-to-Many → Quiz Answers
+8. Quiz Questions
+Field	Type	Required	Extra
+question	String	Yes	-
+correct_answer	String	Yes	-
+option_a	String	Yes	-
+option_b	String	Yes	-
+option_c	String	Yes	-
+option_d	String	Yes	-
+Relations:
+
+Many-to-One ← Artist Quizzes
+9. Quiz Answers
+Field	Type	Required	Extra
+score	Integer	Yes	-
+total_questions	Integer	Yes	-
+session_id	String	Yes	-
+Relations:
+
+Many-to-One ← Artist Quizzes
+10. Artist Events
+Field	Type	Required	Extra
+title	String	Yes	-
+description	Rich Text	No	-
+event_date	DateTime	Yes	-
+location	String	No	-
+image_url	String (URL)	No	-
+Relations:
+
+Many-to-One ← Cities
+Many-to-One ← Artists (optional)
+11. User Discounts
+Field	Type	Required	Extra
+discount_code	String	Yes	Unique
+discount_percentage	Integer	Yes	Min: 0, Max: 100
+used	Boolean	Yes	Default: false
+session_id	String	Yes	-
+Relations:
+
+Many-to-One ← Artists
+12. Products ⭐ (E-COMMERCE - New)
+Field	Type	Required	Extra
+title	String	Yes	-
+description	Text	No	-
+image_url	String (URL)	Yes	-
+price	Decimal	Yes	-
+category	String	Yes	Default: "artwork"
+stock_quantity	Integer	Yes	Default: 999
+is_available	Boolean	Yes	Default: true
+Relations:
+
+Many-to-One ← Artists (optional)
+Many-to-One ← Artworks (optional)
+13. Cart Items ⭐ (E-COMMERCE - New)
+Field	Type	Required	Extra
+session_id	String	Yes	-
+quantity	Integer	Yes	Min: 1
+Relations:
+
+Many-to-One ← Products
+14. Orders ⭐ (E-COMMERCE - New)
+Field	Type	Required	Extra
+session_id	String	Yes	-
+customer_name	String	Yes	-
+customer_email	String	Yes	-
+customer_phone	String	No	-
+delivery_address	String	Yes	-
+delivery_city	String	Yes	-
+delivery_postal	String	No	-
+total_amount	Decimal	Yes	-
+discount_code	String	No	-
+discount_amount	Decimal	No	Default: 0
+final_amount	Decimal	Yes	-
+status	String	Yes	Default: "pending"
+payment_status	String	Yes	Default: "pending"
+notes	Text	No	-
+Relations:
+
+One-to-Many → Order Items
+15. Order Items ⭐ (E-COMMERCE - New)
+Field	Type	Required	Extra
+product_title	String	Yes	-
+product_price	Decimal	Yes	-
+quantity	Integer	Yes	Min: 1
+subtotal	Decimal	Yes	-
+Relations:
+
+Many-to-One ← Orders
+Many-to-One ← Products

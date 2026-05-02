@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "artist_quizzes",
+  "info": {
+    "singularName": "artist-quiz",
+    "pluralName": "artist-quizzes",
+    "displayName": "Artist Quiz"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "artist": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artist.artist",
+      "inversedBy": "artist_quiz"
+    },
+    "quiz_questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quiz-question.quiz-question",
+      "mappedBy": "artist_quiz"
+    },
+    "quiz_answers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quiz-answer.quiz-answer",
+      "mappedBy": "artist_quiz"
+    }
+  }
+}

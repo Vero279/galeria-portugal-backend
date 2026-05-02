@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "session_id": {
+      "type": "string",
+      "required": true
+    },
+    "customer_name": {
+      "type": "string",
+      "required": true
+    },
+    "customer_email": {
+      "type": "email",
+      "required": true
+    },
+    "customer_phone": {
+      "type": "string"
+    },
+    "delivery_address": {
+      "type": "string",
+      "required": true
+    },
+    "delivery_city": {
+      "type": "string",
+      "required": true
+    },
+    "delivery_postal": {
+      "type": "string"
+    },
+    "total_amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "discount_code": {
+      "type": "string"
+    },
+    "discount_amount": {
+      "type": "decimal",
+      "default": 0
+    },
+    "final_amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": "pending"
+    },
+    "payment_status": {
+      "type": "string",
+      "required": true,
+      "default": "pending"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "order_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-item.order-item",
+      "mappedBy": "order"
+    }
+  }
+}
